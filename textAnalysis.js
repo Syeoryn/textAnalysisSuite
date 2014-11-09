@@ -31,10 +31,23 @@ var analyzeText = function(text, options){
   return analysis;
 }
 
+var addTags = function(analysis, newTags){
+  var tags = {};
+  for(var i = 0; i < analysis.tags.length; i++){
+    tags[analysis.tags[i]] = true;
+  }
+  for(var i = 0; i < newTags.length; i++){
+    tags[newTags[i]] = true;
+  }
+  analysis.tags = Object.keys(tags);
+  return tags;
+}
+
 module.exports = {
   countWords: countWords,
   countSentences: countSentences,
   countParagraphs: countParagraphs,
   estimateReadingTime: estimateReadingTime,
   analyzeText: analyzeText,
+  addTags: addTags,
 }
