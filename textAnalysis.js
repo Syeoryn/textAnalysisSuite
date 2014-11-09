@@ -13,8 +13,15 @@ var countParagraphs = function(text){
   return paragraphs ? paragraphs.length : 0;
 }
 
+var estimateReadingTime = function(text, readingSpeed){
+  readingSpeed = readingSpeed || 250;
+  var wordCount = countWords(text);
+  return Math.ceil(wordCount / readingSpeed);
+}
+
 module.exports = {
   countWords: countWords,
   countSentences: countSentences,
   countParagraphs: countParagraphs,
+  estimateReadingTime: estimateReadingTime,
 }
