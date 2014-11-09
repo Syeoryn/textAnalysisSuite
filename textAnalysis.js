@@ -3,6 +3,12 @@ var countWords = function(text){
   return words ? words.length : 0;
 }
 
+var countSentences = function(text){
+  var sentences = text.match(/[^.!?]+/g);
+  return sentences ? sentences.length : 0;
+}
+
 module.exports = {
   countWords: countWords,
+  countSentences: countSentences,
 }
