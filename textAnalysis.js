@@ -8,7 +8,13 @@ var countSentences = function(text){
   return sentences ? sentences.length : 0;
 }
 
+var countParagraphs = function(text){
+  var paragraphs = text.match(/[^\n]+\s*/g);
+  return paragraphs ? paragraphs.length : 0;
+}
+
 module.exports = {
   countWords: countWords,
   countSentences: countSentences,
+  countParagraphs: countParagraphs,
 }
