@@ -33,7 +33,7 @@ describe('The countSentences method', function(){
   });
 
   it('should count the number of sentences in a string', function(){
-    var sentenceCount = textAnalysis.countParagraphs("This is a test.  Just a test?  Yes! Just a test; and semicolons can't get in my way!!!")
+    var sentenceCount = textAnalysis.countSentences("This is a test.  Just a test?  Yes! Just a test; and semicolons can't get in my way!!!")
     expect(sentenceCount).to.equal(4)
   });
 });
