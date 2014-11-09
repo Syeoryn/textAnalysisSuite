@@ -17,7 +17,7 @@ describe('The countWords method', function(){
     var wordCount = textAnalysis.countWords("This is another text.    ");
     expect(wordCount).to.equal(4);
     var nextWordCount = textAnalysis.countWords("And now, for another test!  With more puncuation - you know, the kind that can 'get in the way'!")
-    expect(nextWordCount).to.equal(17);
+    expect(nextWordCount).to.equal(18);
   });
 
   it('should count numbers as words', function(){
