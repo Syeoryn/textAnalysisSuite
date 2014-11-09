@@ -48,6 +48,11 @@ describe('The countParagraphs method', function(){
     var paragraphCount = textAnalysis.countParagraphs('Hello, World. \n\n Goodbye, World.');
     expect(paragraphCount).to.equal(2);
   });
+
+  it('should not include blocks of whitespace in the paragraph count', function(){
+    var paragraphCount = textAnalysis.countParagraphs('Hello, World. \n \n \n Goodbye, World');
+    expect(paragraphCount).to.equal(2);
+  })
 });
 
 describe('The estimateReadingTime method', function(){
