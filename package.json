@@ -1,0 +1,15 @@
+{
+  "name": "LanguageAnalysis",
+  "version": "0.0.0",
+  "description": "* Text analysis module:     * countWords     * countSentences     * countParagraphs     * estimateReadingTime     * analyzeText     * addTags   * nGram analysis module:     * buildNGrams     * getNGramsByFrequency     * getMostCommonNGrams",
+  "main": "textAnalysis.js",
+  "scripts": {
+    "test": "mocha textAnalysis.spec.js -R nyan --bail"
+  },
+  "author": "Drew Cuthbertson",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^2.0.1"
+  }
+}
