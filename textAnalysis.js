@@ -19,9 +19,22 @@ var estimateReadingTime = function(text, readingSpeed){
   return Math.ceil(wordCount / readingSpeed);
 }
 
+var analyzeText = function(text, options){
+  options = options || {};
+  var analysis = {};
+  analysis.wordCount = countWords(text);
+  analysis.sentenceCount = countSentences(text);
+  analysis.paragraphCount = countParagraphs(text);
+  analysis.readingSpeed = options.readingSpeed || 250;
+  analysis.estimatedReadingTime = estimateReadingTime(text, options.readingSpeed);
+  analysis.tags = options.tags || [];
+  return analysis;
+}
+
 module.exports = {
   countWords: countWords,
   countSentences: countSentences,
   countParagraphs: countParagraphs,
   estimateReadingTime: estimateReadingTime,
+  analyzeText: analyzeText,
 }
