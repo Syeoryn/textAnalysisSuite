@@ -94,6 +94,7 @@
         // Example input nGram for “Hello World”, without punctuation
         getNGramsByFrequency({ hello: { world: 1 }, 1)
         // returns [ “hello world”]
+      ```
     * getMostCommonNGrams: function(nGram)
       * Given an input set of nGrams (of the same format as the buildNGrams output), getMostCommonNGrams will return a list of the most common nGrams.
       * Example:
