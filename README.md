@@ -8,6 +8,7 @@
     * addTags
   * nGram analysis module:
     * buildNGrams
+    * listAllNGrams
     * getNGramsByFrequency
     * getMostCommonNGrams
 
@@ -48,7 +49,7 @@
             wordCount: 5,
             sentenceCount: 2,
             paragraphCount: 1,
-            readingTime: 1,
+            estimatedReadingTime: 1,
             readingSpeed: 300,
             tags: [‘test’, ‘HelloWorld’]
            }
@@ -60,7 +61,9 @@
     * buildNGrams: function(text, unit [, options])
       * Maps all nGrams within input text with input unit length (1=unigram, 2=bigram, 3=trigram, ...) 
       * In constructing the nGram, terminal sentence punctuation (such as periods, question marks, and exclamation marks) and semicolons are considered words, as they also carry meaning.  Apostrophes and compound word hyphens are ignored.  To signify the end of a paragraph or body of text, null will be used.
-      * Options include caseSensitive.
+      * Options include caseSensitive and includePunctuation.
+        * If includePunctuation is set to false, then terminal sentence punctuation and the end of the body of text are not included in the nGram.
+        * Both caseSensitive and includePunctuation default to true.
       * Example:
       ```
         buildNGrams(“Hello, World!  How’s the world weather today? Hello, World!”, 2, {caseSensitive: true})
@@ -75,6 +78,14 @@
                      today: { ?: 1 },
                      ?: { Hello: 1 }
                    }
+      ```
+    * listAllNGrams: function(nGrams)
+      * Given an input set of nGrams (of the same format as the buildNGrams output), listAllNGrams will return a list of unique nGrams found in the text.
+      * Example:
+      ```
+        // Example input nGram for “Hello World.  Goodbye World!”, without punctuation
+        listAllNGrams({ Hello: { World: 1 }, Goodbye: { world: 1 }})
+        // returns [“Hello World”, “Goodbye World”]
       ```
     * getNGramsByFrequency: function(nGrams, frequency)
       * Given an input set of nGrams (of the same format as the buildNGrams output), getNGramsByFrequency will return a list of all nGrams that occur that many times.
