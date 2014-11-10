@@ -89,8 +89,14 @@ describe('The getNGramsByFrequency method', function(){
 
   it('should work when there are no matching nGrams', function(){
     var bigrams = nGrams.buildNGrams("Hello world!  Goodbye world!", 2);
-    var commonNGrams = nGrams.getNGramsByFrequency(bigrams, 5);
-    expect(commonNGrams).to.deep.equal([]);
+    var noGrams = nGrams.getNGramsByFrequency(bigrams, 5);
+    expect(noGrams).to.deep.equal([]);
+  });
+
+  it('should work on a set of unigrams', function(){
+    var unigrams = nGrams.buildNGrams("Hello world!  How are you?  Hello world!");
+    var twicegrams = nGrams.getNGramsByFrequency(unigrams, 2);
+    expect(twicegrams).to.deep.equal(["hello", "world"]);
   });
 });
 
