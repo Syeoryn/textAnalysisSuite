@@ -34,7 +34,7 @@ describe('The buildNGrams method', function(){
 
   it('should be able to build case sensitive nGrams', function(){
     var unigrams = nGrams.buildNGrams('Hello World! Hello world!', 1, {caseSensitive: true});
-    expect(unigrams).to.deep.equal({ Hello: { World: 1, world: 1 }})
+    expect(unigrams).to.deep.equal({ Hello: 2, World: 1, world: 1});
   });
 
   it('should be able to build nGrams of arbitrary length', function(){
@@ -42,7 +42,7 @@ describe('The buildNGrams method', function(){
     expect(bigrams).to.deep.equal({ how: { are: 1 }, are: { you: 1 }, you: { doing: 1 }, doing: { today: 1 }});
     var trigrams = nGrams.buildNGrams("How are you doing today?", 3);
     expect(trigrams).to.deep.equal({ "how are": { you: 1 }, "are you": { doing: 1 }, "you doing": { today: 1 }});
-    var quadrigram = nGrams.buildNGrams("How are you doing today?", 4);
+    var quadrigrams = nGrams.buildNGrams("How are you doing today?", 4);
     expect(quadrigrams).to.deep.equal({ "how are you": { doing: 1 }, "are you doing": { today: 1 }});
     var quintigrams = nGrams.buildNGrams("How are you doing today", 5)
     expect(quintigrams).to.deep.equal({"how are you doing": { today: 1 }});
@@ -50,7 +50,7 @@ describe('The buildNGrams method', function(){
 
   it('should not build nGrams greater than the length of the input text', function(){
     var trigrams = nGrams.buildNGrams("Hello, world", 3);
-    expect(trigrams).to.equal(null);
+    expect(trigrams).to.deep.equal({});
   });
 });
 
