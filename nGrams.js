@@ -48,6 +48,21 @@ var buildNGrams = function(text, unit, options){
   return nGrams;
 }
 
+var listAllNGrams = function(nGrams){
+  var nGramList = [];
+  for(var i in nGrams){
+    if(typeof nGrams[i] === 'number'){
+      nGramList = Object.keys(nGrams);
+      break;
+    }
+    for(var j in nGrams[i]){
+      nGramList.push(i + ' ' + j);
+    }
+  }
+  return nGramList;
+}
+
 module.exports = {
   buildNGrams: buildNGrams,
+  listAllNGrams: listAllNGrams,
 }
