@@ -92,12 +92,31 @@ describe('The identifyUniqueTerms method', function(){
   });
 });
 
-describe('The fullTFIDFAnalysis method', function(){
-  it('should perform the above analyses on the input text', function(){
-    var analysis = TFIDF.fullTFIDFAnalysis("Apple orange pizza pizza");
+describe('The fullTFIDFAnalysis', function(){
+  var analysis;
+  var TFStorage;
+  beforeEach(function(){
+    TFStorage = {};
+    analysis = TFIDF.fullTFIDFAnalysis("Apple orange pizza pizza", {TFStorage: TFStorage});
+  });
+
+  it('should have a frequencyCount', function(){
     expect(analysis.frequencyCount).to.deep.equal({1: ['apple', 'orange'], 2: ['pizza']});
+  });
+
+  it('should have a TFStorage', function(){
     expect(analysis.TFStorage).to.deep.equal({apple: 1, orange: 1, pizza: 2});
+  });
+
+  it('should add the frequencyCount to the TFStorage if supplied in options', function(){
+    expect(TFStorage).to.deep.equal({apple: 1, orange: 1, pizza: 2});
+  })
+
+  it('should have an IDF', function(){
     expect(analysis.IDF).to.deep.equal({apple: 1.0000, orange: 1.0000, pizza: 1.0000});
-    expect(analysis.mostUniqueTerm).to.deep.equal(['apple', 'orange', 'pizza']);
+  });
+
+  it('should have a mostUniqueTerms list', function(){
+    expect(analysis.mostUniqueTerms).to.deep.equal(['apple', 'orange', 'pizza']);
   });
 });
