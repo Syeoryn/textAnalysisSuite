@@ -66,6 +66,12 @@ describe('The listAllNGrams method', function(){
     var allNGrams = nGrams.listAllNGrams(bigrams);
     expect(allNGrams).to.deep.equal(["hello world", "goodbye world"]);
   });
+
+  it('should return a list of words, when the input is a set of unigrams', function(){
+    var unigrams = nGrams.buildNGrams("Hello, world!  Goodbye, world!", 1, {includePunctuation: true});
+    var allNGrams = nGrams.listAllNGrams(unigrams);
+    expect(allNGrams).to.deep.equal(["hello", "world", "!", "goodbye"]);
+  })
 });
 
 describe('The getNGramsByFrequency method', function(){
