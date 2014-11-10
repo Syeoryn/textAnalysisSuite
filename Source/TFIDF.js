@@ -18,7 +18,20 @@ var storeTermFrequencies = function(TF, TFStorage){
   return TFStorage;
 }
 
+var normalizeTermFrequencies = function(TF, TFStorage){
+  var IDF = {};
+  for(var count in TF){
+    for(var i = 0; i < TF[count].length; i++){
+      var word = TF[count][i];
+      IDF[word] = +(count / TFStorage[word]).toFixed(4);
+    }
+  }
+
+  return IDF;
+}
+
 module.exports = {
   countTermFrequencies: countTermFrequencies,
   storeTermFrequencies: storeTermFrequencies,
+  normalizeTermFrequencies: normalizeTermFrequencies,
 }
