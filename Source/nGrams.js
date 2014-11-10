@@ -109,7 +109,6 @@ var listNGramsByCount = function(nGrams){
           countList[nGrams[i]].push(i)
         } else {
           countList[nGrams[i]] = [i];
-          console.log('countList', countList);
         }
       } else {
         for(var j in nGrams[i]){
