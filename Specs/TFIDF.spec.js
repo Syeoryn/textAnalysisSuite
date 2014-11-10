@@ -18,14 +18,14 @@ describe('The storeTermFrequencies method', function(){
     var TFStorage = {};
     var list = TFIDF.countTermFrequencies("Apple orange pizza apple");
     TFIDF.storeTermFrequencies(list, TFStorage);
-    expect(TFStorage).to.deep.equal({ apple: 2, orange: 1, pizza: 1})
+    expect(TFStorage).to.deep.equal({ apple: 2, orange: 1, pizza: 1});
     TFIDF.storeTermFrequencies(list, TFStorage);
-    expect(TFStorage).to.deep.equal({ apple: 4, orange: 1, pizza: 1});
+    expect(TFStorage).to.deep.equal({ apple: 4, orange: 2, pizza: 2});
   });
 
   it('should return the new storage object', function(){
     var list = TFIDF.countTermFrequencies("Apple orange pizza apple");
-    var storage = TFIDF.storeTermFrequencies(list, TFStorage);
+    var storage = TFIDF.storeTermFrequencies(list);
     expect(storage).to.deep.equal({ apple: 2, orange: 1, pizza: 1});
   });
 });
