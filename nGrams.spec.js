@@ -8,7 +8,7 @@ describe('The buildNGrams method', function(){
   });
 
   it('should be able to build unigrams', function(){
-    var unigrams = nGrams.buildNGrams('Hello world!', 1});
+    var unigrams = nGrams.buildNGrams('Hello world!', 1);
     expect(unigrams).to.deep.equal({ hello: 1, world: 1 });
   });
 
