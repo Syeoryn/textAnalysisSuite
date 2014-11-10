@@ -54,9 +54,20 @@ var identifyUniqueTerms = function(IDF, options){
   return uniqueSet
 }
 
+var fullTFIDFAnalysis = function(text, options){
+  options = options || {};
+  var analysis = {};
+  analysis.frequencyCount = countTermFrequencies(text, options.tokenLength);
+  analysis.TFStorage = storeTermFrequencies(analysis.frequencyCount, options.TFStorage);
+  analysis.IDF = normalizeTermFrequencies(analysis.frequencyCount, analysis.TFStorage);
+  analysis.mostUniqueTerms = identifyUniqueTerms(analysis.IDF);
+  return analysis;
+}
+
 module.exports = {
   countTermFrequencies: countTermFrequencies,
   storeTermFrequencies: storeTermFrequencies,
   normalizeTermFrequencies: normalizeTermFrequencies,
   identifyUniqueTerms: identifyUniqueTerms,
+  fullTFIDFAnalysis: fullTFIDFAnalysis,
 }
