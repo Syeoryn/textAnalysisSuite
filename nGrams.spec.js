@@ -14,17 +14,17 @@ describe('The buildNGrams method', function(){
 
   it('should track a compound word as a single word', function(){
     var unigrams = nGrams.buildNGrams('This is a top-notch test.', 1);
-    expect(unigrams).to.deep.equal({This: 1, is: 1, a: 1, "top-notch": 1, test: 1});
+    expect(unigrams).to.deep.equal({"this": 1, is: 1, a: 1, "top-notch": 1, test: 1});
   });
 
   it('should allow for apostrophes in words', function(){
     var unigrams = nGrams.buildNGrams("I'm hyphenated!", 1);
-    expect(unigrams).to.deep.equal({"I'm": 1, hyphenated: 1});
+    expect(unigrams).to.deep.equal({"i'm": 1, hyphenated: 1});
   });
 
   it('should track numbers as words', function(){
     var unigrams = nGrams.buildNGrams("Here's 1 more test", 1);
-    expect(unigrams).to.deep.equal({"Here's": 1, "1": 1, more: 1, test: 1});
+    expect(unigrams).to.deep.equal({"here's": 1, "1": 1, more: 1, test: 1});
   });
 
   it('should be able to build nGrams with punctuation', function(){
