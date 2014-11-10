@@ -4,7 +4,7 @@ var nGrams = require('./nGrams.js');
 describe('The buildNGrams method', function(){
   it('should work on an empty string', function(){
     var emptyGrams = nGrams.buildNGrams('', 1);
-    expect(emptyGrams).to.be(null);
+    expect(emptyGrams).to.equal(null);
   });
 
   it('should be able to build unigrams', function(){
