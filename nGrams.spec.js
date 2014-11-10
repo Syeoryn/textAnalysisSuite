@@ -12,6 +12,21 @@ describe('The buildNGrams method', function(){
     expect(unigrams).to.deep.equal({ hello: 1, world: 1 });
   });
 
+  it('should track a compound word as a single word', function(){
+    var unigrams = nGrams.buildNGrams('This is a top-notch test.', 1);
+    expect(unigrams).to.deep.equal({This: 1, is: 1, a: 1, "top-notch": 1 test: 1});
+  });
+
+  it('should allow for apostrophes in words', function(){
+    var unigrams = nGrams.buildNGrams("I'm hyphenated!", 1);
+    expect(unigrams).to.deep.equal({"I'm": 1, hyphenated: 1});
+  });
+
+  it('should track numbers as words', function(){
+    var unigrams = nGrams.buildNGrams("Here's 1 more test", 1);
+    expect(unigrams).to.deep.equal({"Here's": 1, "1": 1, more: 1, test: 1});
+  });
+
   it('should be able to build nGrams with punctuation', function(){
     var unigrams = nGrams.buildNGrams('Hello, world.  How are you?', 1, {includePunctuation: true});
     expect(unigrams).to.deep.equal({ hello: 1, world: 1, '.': 1, how: 1, are: 1, you: 1, '?': 1});
