@@ -30,8 +30,33 @@ var normalizeTermFrequencies = function(TF, TFStorage){
   return IDF;
 }
 
+var identifyUniqueTerms = function(IDF, options){
+  if(options && options.uniqueThreshold >= 0){
+    var score = options.uniqueThreshold;
+    var uniqueSet = {};
+    for(var word in IDF){
+      if(IDF[word] >= score){
+        uniqueSet[word] = IDF[word];
+      }
+    }
+  } else {
+    var uniqueSet = [];
+    var score = 0;
+    for(var word in IDF){
+      if(IDF[word] > score){
+        uniqueSet = [word];
+        score = IDF[word];
+      } else if(IDF[word] === score){
+        uniqueSet.push(word);
+      }
+    }
+  }
+  return uniqueSet
+}
+
 module.exports = {
   countTermFrequencies: countTermFrequencies,
   storeTermFrequencies: storeTermFrequencies,
   normalizeTermFrequencies: normalizeTermFrequencies,
+  identifyUniqueTerms: identifyUniqueTerms,
 }
