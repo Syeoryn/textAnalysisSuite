@@ -62,7 +62,22 @@ var listAllNGrams = function(nGrams){
   return nGramList;
 }
 
+var getNGramsByFrequency = function(nGrams, frequency){
+  var nGramList = [];
+  for(var i in nGrams){
+    if(typeof nGrams[i] === 'number'){
+      if(nGrams[i] === frequency) nGramList.push(i);
+    } else {
+      for(var j in nGrams[i]){
+        if(nGrams[i][j] === frequency) nGramList.push(i + ' ' + j);
+      }
+    }
+  }
+  return nGramList;
+}
+
 module.exports = {
   buildNGrams: buildNGrams,
   listAllNGrams: listAllNGrams,
+  getNGramsByFrequency: getNGramsByFrequency,
 }
