@@ -14,7 +14,7 @@ describe('The buildNGrams method', function(){
 
   it('should track a compound word as a single word', function(){
     var unigrams = nGrams.buildNGrams('This is a top-notch test.', 1);
-    expect(unigrams).to.deep.equal({This: 1, is: 1, a: 1, "top-notch": 1 test: 1});
+    expect(unigrams).to.deep.equal({This: 1, is: 1, a: 1, "top-notch": 1, test: 1});
   });
 
   it('should allow for apostrophes in words', function(){
