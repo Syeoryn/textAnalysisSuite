@@ -119,3 +119,16 @@ describe('The getMostCommonNGrams method', function(){
     expect(commonNGrams).to.deep.equal(["hello world", "goodbye world"]);
   });
 });
+
+describe('The listNGramsByCount method', function(){
+  it('should sort a set of unigrams by count', function(){
+    var unigrams = nGrams.buildNGrams("Hello, world!  How's the weather?  Goodbye, world!", 1);
+    var listOfGrams = nGrams.listNGramsByCount(unigrams);
+    expect(listOfGrams).to.deep.equal({ 1: ['hello', "how's", 'the', 'weather', 'goodbye'], 2: ['world']});
+  });
+  it('should sort a set of bigrams by count', function(){
+    var bigrams = nGrams.buildNGrams("Hello, world! Hello, world!", 2);
+    var listOfGrams = nGrams.listNGramsByCount(bigrams);
+    expect(listOfGrams).to.deep.equal({ 2: ["hello world"]});
+  })
+});
