@@ -101,9 +101,33 @@ var getMostCommonNGrams = function(nGrams){
   return nGramList;
 }
 
+var listNGramsByCount = function(nGrams){
+  var countList = {};
+    for(var i in nGrams){
+      if(typeof nGrams[i] === 'number'){
+        if(nGrams[i] in countList){
+          countList[nGrams[i]].push(i)
+        } else {
+          countList[nGrams[i]] = [i];
+          console.log('countList', countList);
+        }
+      } else {
+        for(var j in nGrams[i]){
+          if(nGrams[i][j] in countList){
+            countList[nGrams[i][j]].push(i + ' ' + j);
+          } else {
+            countList[nGrams[i][j]] = [i + ' ' + j];
+          }
+        }
+      }
+    }
+  return countList;
+}
+
 module.exports = {
   buildNGrams: buildNGrams,
   listAllNGrams: listAllNGrams,
   getNGramsByFrequency: getNGramsByFrequency,
-  getMostCommonNGrams: getMostCommonNGrams
+  getMostCommonNGrams: getMostCommonNGrams,
+  listNGramsByCount: listNGramsByCount,
 }
