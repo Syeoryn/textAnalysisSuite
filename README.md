@@ -63,10 +63,10 @@
       * In constructing the nGram, terminal sentence punctuation (such as periods, question marks, and exclamation marks) and semicolons are considered words, as they also carry meaning.  Apostrophes and compound word hyphens are ignored.  To signify the end of a paragraph or body of text, null will be used.
       * Options include caseSensitive and includePunctuation.
         * If includePunctuation is set to false, then terminal sentence punctuation and the end of the body of text are not included in the nGram.
-        * Both caseSensitive and includePunctuation default to true.
+        * Both caseSensitive and includePunctuation both default to false.
       * Example:
       ```
-        buildNGrams(“Hello, World!  How’s the world weather today? Hello, World!”, 2, {caseSensitive: true})
+        buildNGrams(“Hello, World!  How’s the world weather today? Hello, World!”, 2, {caseSensitive: true, includePunctuation: true})
         // returns { Hello: { ,: 2 },
                      ,: { World: 2 },
                      World: { !: 2 },
@@ -85,20 +85,20 @@
       ```
         // Example input nGram for “Hello World.  Goodbye World!”, without punctuation
         listAllNGrams({ Hello: { World: 1 }, Goodbye: { world: 1 }})
-        // returns [“Hello World”, “Goodbye World”]
+        // returns [“hello world”, “goodbye world”]
       ```
     * getNGramsByFrequency: function(nGrams, frequency)
       * Given an input set of nGrams (of the same format as the buildNGrams output), getNGramsByFrequency will return a list of all nGrams that occur that many times.
       * Example:
       ```
-        // Example input nGram for “Hello World”
-        getNGramsByFrequency({ Hello: { World: 1 }, World: { null: 1 } }, 1)
-        // returns [ “Hello World”, “World” ]
+        // Example input nGram for “Hello World”, without punctuation
+        getNGramsByFrequency({ hello: { world: 1 }, 1)
+        // returns [ “hello world”]
     * getMostCommonNGrams: function(nGram)
       * Given an input set of nGrams (of the same format as the buildNGrams output), getMostCommonNGrams will return a list of the most common nGrams.
       * Example:
       ```
-        // Example input nGram for “Hello World!  Goodbye World!”
+        // Example input nGram for “Hello World!  Goodbye World!”, with punctuation
         getMostCommonNGrams({ Hello: { World: 1 }, World: { !: 2 }, !: { Goodbye: 1, null: 1 }, Goodbye: { world: 1 }})
         // returns [“World!”]
       ```
