@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var nGrams = require('./nGrams.js');
+var nGrams = require('../Source/nGrams.js');
 
 describe('The buildNGrams method', function(){
   it('should work on an empty string', function(){

@@ -4,7 +4,7 @@
   "description": "* Text analysis module:     * countWords     * countSentences     * countParagraphs     * estimateReadingTime     * analyzeText     * addTags   * nGram analysis module:     * buildNGrams     * getNGramsByFrequency     * getMostCommonNGrams",
   "main": "textAnalysis.js",
   "scripts": {
-    "test": "mocha *.spec.js -R nyan --bail"
+    "test": "mocha Specs/*.spec.js -R nyan --bail"
   },
   "author": "Drew Cuthbertson",
   "license": "ISC",

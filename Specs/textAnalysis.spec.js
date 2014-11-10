@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var textAnalysis = require('./textAnalysis.js');
+var textAnalysis = require('../Source/textAnalysis.js');
 
 describe('The countWords method', function(){
   it('should work on an empty string', function(){
