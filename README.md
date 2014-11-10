@@ -1,3 +1,23 @@
+####Getting Started
+Clone the repo with:
+```
+  git clone https://https://github.com/Syeoryn/textAnalysisSuite.git
+  npm install
+```
+
+To try out the package, run:
+```
+  npm start
+```
+This will start a streaming analysis of text through stdin.  Go ahead and put some sample text in the terminal window where this is running and test it out for yourself!
+The tryMeOut.js script is just a sample of what can be done with the packages in this suite.  It defaults to building bigrams, and does not save the TFIDF analysis in a persistent datastore, but feel free to tweak it and see what you can do.
+
+To run the tests, try:
+```
+  npm test
+```
+
+
 ####Features:
   * Text analysis module:
     * countWords
