@@ -76,8 +76,34 @@ var getNGramsByFrequency = function(nGrams, frequency){
   return nGramList;
 }
 
+var getMostCommonNGrams = function(nGrams){
+  var nGramList = [];
+  var maximumFrequency = 1;
+  for(var i in nGrams){
+    if(typeof nGrams[i] === 'number'){
+      if(nGrams[i] > maximumFrequency){
+        nGramList = [i];
+        maximumFrequency = nGrams[i];
+      } else if(nGrams[i] === maximumFrequency){
+        nGramList.push(i);
+      }
+    } else {
+      for(var j in nGrams[i]){
+        if(nGrams[i][j] > maximumFrequency){
+          nGramList = [i + ' ' + j];
+          maximumFrequency = nGrams[i][j];
+        } else if(nGrams[i][j] === maximumFrequency){
+          nGramList.push(i + ' ' + j);
+        }
+      }
+    }
+  }
+  return nGramList;
+}
+
 module.exports = {
   buildNGrams: buildNGrams,
   listAllNGrams: listAllNGrams,
   getNGramsByFrequency: getNGramsByFrequency,
+  getMostCommonNGrams: getMostCommonNGrams
 }
