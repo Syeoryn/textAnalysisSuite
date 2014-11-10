@@ -35,7 +35,7 @@ describe('The normalizeTermFrequencies method', function(){
     var TFStorage = {};
     var list = TFIDF.countTermFrequencies("Apple orange pizza apple");
     TFIDF.storeTermFrequencies(list, TFStorage);
-    var IDF = TFIDF.normalizeTermFreqencies(list, TFStorage);
+    var IDF = TFIDF.normalizeTermFrequencies(list, TFStorage);
     expect(IDF).to.deep.equal({apple: 1, orange: 1, pizza: 1});
 
     var secondList = TFIDF.countTermFrequencies("Apple orange pizza peach");
@@ -51,7 +51,7 @@ describe('The identifyUniqueTerms method', function(){
 
     var list = TFIDF.countTermFrequencies("Apple orange pizza apple");
     TFIDF.storeTermFrequencies(list, TFStorage);
-    var IDF = TFIDF.normalizeTermFreqencies(list, TFStorage);
+    var IDF = TFIDF.normalizeTermFrequencies(list, TFStorage);
 
     var secondList = TFIDF.countTermFrequencies("Apple orange pizza peach");
     TFIDF.storeTermFrequencies(secondList, TFStorage);
@@ -66,7 +66,7 @@ describe('The identifyUniqueTerms method', function(){
 
     var list = TFIDF.countTermFrequencies("Apple orange pizza apple");
     TFIDF.storeTermFrequencies(list, TFStorage);
-    var IDF = TFIDF.normalizeTermFreqencies(list, TFStorage);
+    var IDF = TFIDF.normalizeTermFrequencies(list, TFStorage);
 
     var secondList = TFIDF.countTermFrequencies("Apple orange pizza");
     TFIDF.storeTermFrequencies(secondList, TFStorage);
@@ -81,7 +81,7 @@ describe('The identifyUniqueTerms method', function(){
 
     var list = TFIDF.countTermFrequencies("Apple orange pizza apple");
     TFIDF.storeTermFrequencies(list, TFStorage);
-    var IDF = TFIDF.normalizeTermFreqencies(list, TFStorage);
+    var IDF = TFIDF.normalizeTermFrequencies(list, TFStorage);
 
     var secondList = TFIDF.countTermFrequencies("Apple orange pizza peach");
     TFIDF.storeTermFrequencies(secondList, TFStorage);
