@@ -19,6 +19,18 @@ To run the tests, try:
   npm test
 ```
 
+####This just in!
+We’re now live on npm!  You can install the [nGrams](https://www.npmjs.org/package/word-ngrams) and [TFIDF](https://www.npmjs.org/package/document-tfidf) modules like this:
+```
+  npm install word-ngrams
+  npm install document-tfidf
+```
+Then all you need to do to use them is add a few lines of code to the beginning of your project!
+```
+  var nGrams = require(‘word-ngrams’);
+  var TFIDF = require(‘document-tfidf’);
+```
+
 
 ####Features:
   * Text analysis module:
