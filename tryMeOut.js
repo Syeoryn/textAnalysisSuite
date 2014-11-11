@@ -25,9 +25,9 @@ process.stdin.on('data', function(data){
   }
 
   process.stdout.write('\n\n================RAW DATA================\n');
-  process.stdout.write('nSimple analysis\n' + JSON.stringify(simpleAnalysis) + '\n\n');
-  process.stdout.write('nBigrams\n' + JSON.stringify(bigramList) + '\n\n');
-  process.stdout.write('nTFIDF\n' + JSON.stringify(TFIDFAnalysis) + '\n\n');
+  process.stdout.write('Simple analysis\n' + JSON.stringify(simpleAnalysis) + '\n\n');
+  process.stdout.write('Bigrams\n' + JSON.stringify(bigramList) + '\n\n');
+  process.stdout.write('TFIDF\n' + JSON.stringify(TFIDFAnalysis) + '\n\n');
   process.stdout.write('\n\n================INTERPRETED DATA================\n');
   process.stdout.write('Word Count: ' + simpleAnalysis.wordCount + '\n');
   process.stdout.write('Sentence Count: ' + simpleAnalysis.sentenceCount + '\n');
