@@ -1,7 +1,7 @@
 ####Getting Started
 Clone the repo:
 ```
-  git clone https://https://github.com/Syeoryn/textAnalysisSuite.git
+  git clone https://github.com/Syeoryn/textAnalysisSuite.git
 ```
 Install the dependencies (none currently, unless you want to run the specs):
 ```
