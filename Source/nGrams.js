@@ -1,7 +1,7 @@
 var buildNGrams = function(text, unit, options){
   unit = unit || 1;
   options = options || {};
-  var nGrams = {};
+  var nGrams = Object.create(null);
   if(!text.length) return nGrams;
   if(!options.caseSensitive) text = text.toLowerCase();
   if(options.includePunctuation){
@@ -34,7 +34,7 @@ var buildNGrams = function(text, unit, options){
         var bucket = nGrams;
       } else {
         if( !(start in nGrams) ){
-          nGrams[start] = {};
+          nGrams[start] = Object.create(null);
         }
         var bucket = nGrams[start];
       }
@@ -102,7 +102,7 @@ var getMostCommonNGrams = function(nGrams){
 }
 
 var listNGramsByCount = function(nGrams){
-  var countList = {};
+  var countList = Object.create(null);
     for(var i in nGrams){
       if(typeof nGrams[i] === 'number'){
         if(nGrams[i] in countList){
