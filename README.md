@@ -167,6 +167,6 @@ Then all you need to do to use them is add a few lines of code to the beginning 
     * identifyUniqueTerms: function(normalizedTokenSet [, options])
       * From the input normalizedTokenSet, identifyUniqueTerms will return the most unique tokens, as defined by the highest TFIDF
       * Current options include uniqueThreshold.  If specified, identifyUniqueTerms will return all terms with a TFIDF equal to or greater than the uniqueThreshold
-    * fullTFIDAnalysis: function(text [, options])
+    * fullTFIDFAnalysis: function(text [, options])
       * Completes all of the above TFIDF calculations
       * options correspond with the options for each piece of the analysis
