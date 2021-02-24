@@ -1,8 +1,8 @@
 {
-  "name": "LanguageAnalysis",
+  "name": "document-tfidf",
   "version": "0.0.0",
   "description": "* Text analysis module:     * countWords     * countSentences     * countParagraphs     * estimateReadingTime     * analyzeText     * addTags   * nGram analysis module:     * buildNGrams     * getNGramsByFrequency     * getMostCommonNGrams",
-  "main": "textAnalysis.js",
+  "main": "Source/textAnalysis.js",
   "scripts": {
     "test": "mocha Specs/*.spec.js -R nyan --bail",
     "start": "node tryMeOut.js"
